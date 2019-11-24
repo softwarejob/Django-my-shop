@@ -23,6 +23,8 @@ urlpatterns = [
 	path('cart/', include('cart.urls', namespace='cart')),
 	path('orders/',include('orders.urls', namespace='orders')),
     path('', include('shop.urls', namespace='shop')),
+    path('grappelli/', include('grappelli.urls')), # grappelli URLS
+    path('accounts/', include('allauth.urls')),
 ]
 if settings.DEBUG:
      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -25,22 +25,60 @@ SECRET_KEY = '$f$-3s(b*lich5h@62!@-v7v_)a%8_o=ki3s(l4kyt3b4-hd!m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.186.128',]
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 	'shop',
 	'cart',
-	'orders'
+	'orders',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # ... include the providers you want to enable:
+    'allauth.socialaccount.providers.amazon',
+    'allauth.socialaccount.providers.baidu',
+    'allauth.socialaccount.providers.basecamp',
+    'allauth.socialaccount.providers.bitbucket',
+    'allauth.socialaccount.providers.dataporten',
+    'allauth.socialaccount.providers.digitalocean',
+    'allauth.socialaccount.providers.discord',
+    'allauth.socialaccount.providers.dropbox',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.fxa',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.gitlab',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.line',
+    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.microsoft',
+    'allauth.socialaccount.providers.paypal',
+    'allauth.socialaccount.providers.patreon',
+    'allauth.socialaccount.providers.persona',
+    'allauth.socialaccount.providers.pinterest',
+    'allauth.socialaccount.providers.reddit',
+    'allauth.socialaccount.providers.robinhood',
+    'allauth.socialaccount.providers.sharefile',
+    'allauth.socialaccount.providers.soundcloud',
+    'allauth.socialaccount.providers.spotify',
+    'allauth.socialaccount.providers.steam',
+    'allauth.socialaccount.providers.twitch',
+    'allauth.socialaccount.providers.twitter',
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -140,6 +178,12 @@ PAYPAL_BRAND_NAME = 'myshop'
 PAYPAL_CALLBACK_HTTPS=False
 
 #Email
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 
 
